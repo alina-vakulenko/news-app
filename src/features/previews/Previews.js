@@ -8,6 +8,7 @@ import {
 } from "./previewsSlice";
 import { loadCurrentArticle } from "../currentArticle/currentArticleSlice";
 import { selectCategory } from "../previews/searchArticlesSlice";
+import Loader from "../../components/Loader";
 import "../../styles/previews.css";
 
 function Previews() {
@@ -21,7 +22,7 @@ function Previews() {
   }, [dispatch, category]);
 
   if (previewsAreLoading) {
-    return <div>Searching news for "{category}"...</div>;
+    return <Loader message={`Searching news for "${category}"`} />;
   }
 
   return (

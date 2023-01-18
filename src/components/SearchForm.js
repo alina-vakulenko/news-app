@@ -4,7 +4,7 @@ import "../styles/searchForm.css";
 function SearchForm({ keyword, onChange, onSubmit, onClear }) {
   return (
     <form className="search-form" onSubmit={onSubmit}>
-      <i class="fa-solid fa-magnifying-glass search-icon"></i>
+      <i className="fa-solid fa-magnifying-glass search-icon"></i>
       <input
         type="text"
         value={keyword}
@@ -14,7 +14,7 @@ function SearchForm({ keyword, onChange, onSubmit, onClear }) {
       />
       {keyword.length > 0 && (
         <button onClick={onClear} className="clear-input-button">
-          <i class="fa-solid fa-x clear-icon"></i>
+          <i className="fa-solid fa-x clear-icon"></i>
         </button>
       )}
     </form>
