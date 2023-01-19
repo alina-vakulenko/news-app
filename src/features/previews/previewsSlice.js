@@ -3,15 +3,16 @@ import axios from "axios";
 
 export const loadAllPreviews = createAsyncThunk(
   "previews/loadAllPreviews",
-  async (searchTerm) => {
+  async (keywords) => {
     try {
       const response = await axios({
         method: "get",
-        url: "https://newsapi.org/v2/everything",
+        url: "https://newsapi.org/v2/top-headlines",
         headers: { "X-Api-Key": "21561b62354b42e09b27d5d359f870b8" },
         params: {
-          language: "en",
-          q: searchTerm,
+          country: "us",
+          category: "general",
+          q: keywords,
         },
       });
       return response.data.articles;

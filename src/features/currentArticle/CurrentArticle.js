@@ -1,24 +1,27 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import {
   selectCurrentArticle,
-  isLoadingCurrentArticle,
+  hideCurrentArticle,
 } from "../currentArticle/currentArticleSlice";
 import FullArticle from "../../components/FullArticle";
 import "../../styles/currentArticle.css";
 
 const CurrentArticle = () => {
+  const dispatch = useDispatch();
   const article = useSelector(selectCurrentArticle);
-  const currentArticleIsLoading = useSelector(isLoadingCurrentArticle);
 
-  if (currentArticleIsLoading) {
-    return <div>Article is loading</div>;
-  } else if (!article) {
-    return null;
-  }
+  if (!Object.keys(article).length) return null;
 
   return (
-    <div className="current-article">
+    <div className="full__article">
+      <button
+        className="hide__full__article__button"
+        onClick={() => dispatch(hideCurrentArticle())}
+      >
+        <i className="fa-solid fa-xmark"></i>
+      </button>
+
       <FullArticle article={article} />
     </div>
   );

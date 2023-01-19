@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const categorySlice = createSlice({
   name: "category",
-  initialState: "Ukraine",
+  initialState: "",
   reducers: {
     setCategory: (state, action) => {
       return action.payload;

@@ -26,12 +26,14 @@ function SearchArticles() {
   };
 
   return (
-    <SearchForm
-      keyword={userInput}
-      onChange={handleInputChange}
-      onSubmit={handleSubmit}
-      onClear={clearInput}
-    />
+    <div className="content__wrapper">
+      <SearchForm
+        keyword={userInput}
+        onChange={handleInputChange}
+        onSubmit={handleSubmit}
+        onClear={clearInput}
+      />
+    </div>
   );
 }
 

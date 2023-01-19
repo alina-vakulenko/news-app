@@ -6,10 +6,9 @@ import {
   selectAllPreviews,
   isLoadingPreviews,
 } from "./previewsSlice";
-import { loadCurrentArticle } from "../currentArticle/currentArticleSlice";
+import { dispalayCurrentArticle } from "../currentArticle/currentArticleSlice";
 import { selectCategory } from "../previews/searchArticlesSlice";
 import Loader from "../../components/Loader";
-import "../../styles/previews.css";
 
 function Previews() {
   const dispatch = useDispatch();
@@ -22,21 +21,20 @@ function Previews() {
   }, [dispatch, category]);
 
   if (previewsAreLoading) {
-    return <Loader message={`Searching news for "${category}"`} />;
+    return <Loader message={`Searching news for you...`} />;
   }
-
   return (
-    <section className="articles-container">
-      <h2 className="category">See the latest news on topic "{category}"</h2>
+    <div className="previews">
+      {/* <h2 className="category">What we have found on topic "{category}"</h2> */}
       {previews.map((article) => (
         <div
           key={article.id}
-          onClick={(e) => dispatch(loadCurrentArticle(article.id))}
+          onClick={() => dispatch(dispalayCurrentArticle(article))}
         >
           <PreviewArticle article={article} />
         </div>
       ))}
-    </section>
+    </div>
   );
 }
 

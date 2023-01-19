@@ -8,7 +8,33 @@
   display: flex;
   justify-content: center;
 }
-main {
-  width: 800px;
+
+.App {
+  width: 100%;
+}
+
+body {
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: normal;
+  font-style: normal;
+}
+
+.content__wrapper {
+  padding: 0 50px;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 500px 400px;
+}
+.headlines,
+.selected__article {
+  max-height: 100vh;
+}
+
+.headlines {
+  background-color: rgb(220, 220, 220);
+  overflow: scroll;
 }

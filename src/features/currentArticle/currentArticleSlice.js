@@ -1,41 +1,20 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-
-export const loadCurrentArticle = createAsyncThunk(
-  "currentArticle/loadCurrentArticle",
-  async (articleId) => {
-    const data = await fetch("");
-    const json = await data.json();
-    return json;
-  }
-);
+import { createSlice } from "@reduxjs/toolkit";
 
 export const currentArticleSlice = createSlice({
   name: "currentArticle",
-  initialState: {
-    article: undefined,
-    isLoadingCurrentArticle: false,
-    hasError: false,
-  },
-  extraReducers: (builder) => {
-    builder
-      .addCase(loadCurrentArticle.pending, (state) => {
-        state.isLoadingCurrentArticle = true;
-        state.hasError = false;
-      })
-      .addCase(loadCurrentArticle.fulfilled, (state, action) => {
-        state.isLoadingCurrentArticle = false;
-        state.hasError = false;
-        state.article = action.payload;
-      })
-      .addCase(loadCurrentArticle.rejected, (state) => {
-        state.isLoadingCurrentArticle = false;
-        state.hasError = true;
-      });
+  initialState: {},
+  reducers: {
+    dispalayCurrentArticle: (state, action) => {
+      return action.payload;
+    },
+    hideCurrentArticle: (state) => {
+      return {};
+    },
   },
 });
 
-export const selectCurrentArticle = (state) => state.currentArticle.article;
-export const isLoadingCurrentArticle = (state) =>
-  state.currentArticle.isLoadingCurrentArticle;
+export const selectCurrentArticle = (state) => state.currentArticle;
+export const { dispalayCurrentArticle, hideCurrentArticle } =
+  currentArticleSlice.actions;
 
 export default currentArticleSlice.reducer;
