@@ -6,10 +6,13 @@
   cursor: pointer;
 }
 
-.article-container:hover,
+.article-container:hover {
+  background-color: rgb(182, 182, 182);
+}
+
 .article-container:focus {
-  background-color: #141c3a;
   color: #ffffff;
+  background-color: #141c3a;
 }
 
 .article-content-container {

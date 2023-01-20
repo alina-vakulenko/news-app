@@ -1,0 +1,24 @@
+.selected__search__options {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 20px;
+  background-color: white;
+  border: 1px solid gray;
+}
+
+li {
+  padding: 10px;
+  margin: 10px;
+  list-style: none;
+}
+
+li::before {
+  content: "";
+  display: inline-block;
+  margin-right: 5px;
+  height: 10px;
+  width: 10px;
+  background-image: url("../icons/svg/check.svg");
+}

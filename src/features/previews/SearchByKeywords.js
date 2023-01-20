@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { setCategory, selectCategory } from "./searchArticlesSlice";
+import { useDispatch } from "react-redux";
+import { setQueryParams } from "./queryParamsSlice";
 import SearchForm from "../../components/SearchForm";
 
-function SearchArticles() {
+function SearchByKeywords() {
   const dispatch = useDispatch();
-  const category = useSelector(selectCategory);
-  let [userInput, setUserInput] = useState(category);
+  let [userInput, setUserInput] = useState("");
 
   const handleInputChange = (e) => {
     setUserInput(e.target.value);
@@ -18,11 +17,7 @@ function SearchArticles() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (userInput.length) {
-      userInput.toLowerCase().trim();
-      dispatch(setCategory(userInput));
-      setUserInput("");
-    }
+    dispatch(setQueryParams({ q: userInput.toLowerCase().trim() }));
   };
 
   return (
@@ -37,4 +32,4 @@ function SearchArticles() {
   );
 }
 
-export default SearchArticles;
+export default SearchByKeywords;

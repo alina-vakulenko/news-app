@@ -10,13 +10,12 @@ function SearchForm({ keyword, onChange, onSubmit, onClear }) {
         onChange={onChange}
         placeholder="Enter a keyword or phrase to search for..."
         className="search__input"
-        name="keywords-to-search"
       />
-      {keyword.length > 0 && (
-        <button onClick={onClear} className="clear__button">
+      {keyword.length ? (
+        <p className="clear__button" onClick={onClear}>
           <i className="fa-solid fa-x clear-icon"></i>
-        </button>
-      )}
+        </p>
+      ) : null}
     </form>
   );
 }

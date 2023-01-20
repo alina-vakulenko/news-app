@@ -16,9 +16,9 @@
 
 .category__item {
   padding: 5px 10px;
-  margin-right: 10px;
+  margin-right: 15px;
   background-color: transparent;
-  border: none;
+  border: 1px solid #141c3a;
   color: white;
   cursor: pointer;
   transition: all 150ms ease-in-out;
@@ -26,5 +26,11 @@
 }
 
 .category__item:hover {
-  color: rgb(214, 214, 214);
+  opacity: 0.75;
+}
+
+.category__item:active,
+.category__item:focus {
+  border: 1px solid white;
+  border-radius: 4px;
 }
