@@ -1,0 +1,125 @@
+.news-dashboard .news-card-size-l {
+  grid-column: span 2;
+  grid-row: span 2;
+  height: 570px;
+}
+
+.news-dashboard .news-card-size-m {
+  grid-column: span 2;
+  grid-row: span 1;
+  height: 278px;
+}
+
+.news-dashboard .news-card-size-s {
+  grid-column: span 1;
+  grid-row: span 1;
+  height: 278px;
+}
+
+.news-dashboard .news-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.news-dashboard .news-card:hover .news-card-pic {
+  transform: scale(1.05);
+}
+
+.news-dashboard .news-card-info-layer {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  color: #fff;
+}
+
+.news-dashboard .info-layer-category {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  font-size: 10px;
+  line-height: 10px;
+  padding: 6px 8px;
+  color: white;
+}
+.news-dashboard .category-bg-color-1 {
+  background: #0088ff;
+}
+
+.news-dashboard .category-bg-color-2 {
+  background: #997c00;
+}
+
+.news-dashboard .category-bg-color-3 {
+  background: #49cfe8;
+}
+
+.news-dashboard .category-bg-color-4 {
+  background: #2ecc71;
+}
+
+.news-dashboard .category-bg-color-5 {
+  background: #fe4a51;
+}
+
+.news-dashboard .category-bg-color-6 {
+  background: #a56cbd;
+}
+
+.news-dashboard .info-layer-caption {
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
+}
+
+.news-dashboard .info-layer-author-date {
+  margin-bottom: 6px;
+}
+
+.news-dashboard .info-layer-author-date-size-l {
+  font-size: 12px;
+  line-height: 12px;
+}
+
+.news-dashboard .info-layer-author-date-size-s {
+  font-size: 10px;
+  line-height: 10px;
+}
+
+.news-dashboard .info-layer-title {
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.news-dashboard .info-layer-title-size-l {
+  font-size: 36px;
+  line-height: 53px;
+}
+
+.news-dashboard .info-layer-title-size-m {
+  font-size: 24px;
+  line-height: 36px;
+}
+
+.news-dashboard .info-layer-title-size-s {
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.news-dashboard .news-card-pic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.15s all;
+}
+
+.news-dashboard .news-card-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 3;
+}

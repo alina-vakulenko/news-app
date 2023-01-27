@@ -1,5 +1,5 @@
 import React from "react";
-import { selectQueryParams } from "../features/previews/queryParamsSlice";
+import { selectQueryParams } from "../features/headlines/queryParamsSlice";
 import { useSelector } from "react-redux";
 import cl from "../styles/selectedSearchOptions.module.css";
 

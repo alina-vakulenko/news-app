@@ -1,0 +1,26 @@
+.header-search-form {
+  position: relative;
+}
+
+.header-search-form::before {
+  display: block;
+  content: "";
+  width: 1px;
+  height: 60px;
+  background-color: rgba(255, 255, 255, 0.3);
+  position: absolute;
+  top: 1px;
+  bottom: 1px;
+}
+
+.header-search-field {
+  max-width: 152px;
+  padding-left: 15px;
+  margin-right: 30px;
+  background: #393939 url("../images/search-icon.svg") no-repeat right;
+  background-size: 14px;
+  font-size: 14px;
+  line-height: 60px;
+  color: rgba(255, 255, 255, 0.3);
+  border: none;
+}

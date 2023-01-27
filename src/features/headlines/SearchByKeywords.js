@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { setQueryParams } from "./queryParamsSlice";
 import SearchForm from "../../components/SearchForm";
 
-function SearchByKeywords() {
+export default function SearchByKeywords() {
   const dispatch = useDispatch();
   let [userInput, setUserInput] = useState("");
 
@@ -11,25 +10,23 @@ function SearchByKeywords() {
     setUserInput(e.target.value);
   };
 
-  const clearInput = () => {
+  const handleInputClear = () => {
     setUserInput("");
   };
 
-  const handleSubmit = (e) => {
+  const handleFormSubmit = (e) => {
     e.preventDefault();
-    dispatch(setQueryParams({ q: userInput.toLowerCase().trim() }));
+    // dispatch(setUserPreferences({ q: userInput.toLowerCase().trim() }));
   };
 
   return (
-    <div className="content__wrapper">
+    <div className="content-wrapper">
       <SearchForm
         keyword={userInput}
         onChange={handleInputChange}
-        onSubmit={handleSubmit}
-        onClear={clearInput}
+        onSubmit={handleFormSubmit}
+        onClear={handleInputClear}
       />
     </div>
   );
 }
-
-export default SearchByKeywords;
