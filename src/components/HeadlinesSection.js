@@ -27,7 +27,7 @@ export default function HeadlinesSection({ category, currentPage, setPage }) {
   };
 
   return (
-    <section className="news-category-section">
+    <section id={category} className="news-category-section">
       <div className="section-title">
         <h2 className="section-title-category">{category}</h2>
         <div className="section-title-buttons">
@@ -54,14 +54,13 @@ export default function HeadlinesSection({ category, currentPage, setPage }) {
           </button>
         </div>
       </div>
-      {headlines.status === "loading" ? (
-        <Loader message="Searching news for you..." />
-      ) : (
+      {headlines.error}
+      {headlines.headlines.length ? (
         <HeadlinesSectionContent
           topNews={headlines.headlines[0]}
           bottomNews={headlines.headlines.slice(1, 4)}
         />
-      )}
+      ) : null}
     </section>
   );
 }

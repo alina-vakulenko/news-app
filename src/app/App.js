@@ -12,8 +12,8 @@ function App() {
       <main>
         <div className="content-wrapper">
           <NewsSources />
+          <NewsDashboard />
           <HeadlinesCategoriesSections />
-          {/* <NewsDashboard /> */}
         </div>
       </main>
     </div>

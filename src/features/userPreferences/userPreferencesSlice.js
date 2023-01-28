@@ -3,8 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 export const userPreferencesSlice = createSlice({
   name: "userPreferences",
   initialState: {
-    country: "us",
-    language: "en",
+    country: "ua",
+    language: "",
   },
   reducers: {
     setCountry: (state, action) => {

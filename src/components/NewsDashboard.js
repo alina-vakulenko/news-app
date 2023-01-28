@@ -1,16 +1,32 @@
-import React from "react";
+import React, { useEffect } from "react";
 import NewsPhotoCard from "./NewsPhotoCard";
+import { useSelector, useDispatch } from "react-redux";
+import { selectCurrentCountry } from "../features/userPreferences/userPreferencesSlice";
+import { loadAllHeadlines } from "../features/headlines/headlinesSlice";
 import "../styles/newsDashboard.css";
 
-export default function NewsDashboard(newsList) {
+export default function NewsDashboard() {
+  const dispatch = useDispatch();
+  const currentCountry = useSelector(selectCurrentCountry);
+  const newsList = useSelector((state) => state.headlines.all.headlines);
+
+  useEffect(() => {
+    dispatch(
+      loadAllHeadlines({
+        country: currentCountry,
+        pageSize: 4,
+        page: 1,
+      })
+    );
+  }, [dispatch, currentCountry]);
+
   return (
     <div class="news-dashboard">
       <div class="news-cards">
-        {newsList.map((newsItem) => (
-          <div key={newsItem.id}>
-            <NewsPhotoCard newsObject={newsItem} />
-          </div>
-        ))}
+        <NewsPhotoCard newsItem={newsList[0]} size="size-l" />
+        <NewsPhotoCard newsItem={newsList[1]} size="size-s" />
+        <NewsPhotoCard newsItem={newsList[2]} size="size-s" />
+        <NewsPhotoCard newsItem={newsList[3]} size="size-m" />
 
         {/* <figure class="news-card news-card-size-s">
           <img

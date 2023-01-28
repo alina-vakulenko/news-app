@@ -1,11 +1,13 @@
 import React from "react";
-import HeaderSearchForm from "./HeaderSearchForm";
-import Menu from "./Menu";
-import "../styles/header.css";
 import logo from "../images/logo.svg";
+import Menu from "./Menu";
+import UserPreferences from "../features/userPreferences/UserPreferences";
+import HeaderSearchForm from "./HeaderSearchForm";
+import "../styles/header.css";
 
 export default function Header() {
   const menuItems = [
+    "Home",
     "General",
     "Business",
     "Entertainment",
@@ -24,6 +26,7 @@ export default function Header() {
         </div>
         <div className="menu-wrapper">
           <Menu menuItems={menuItems} />
+          <UserPreferences />
           <HeaderSearchForm />
         </div>
       </div>

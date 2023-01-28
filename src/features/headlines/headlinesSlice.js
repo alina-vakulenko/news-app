@@ -1,6 +1,31 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
+export const loadAllHeadlines = createAsyncThunk(
+  "headlines/loadAllHeadlines",
+  async ({ country, pageSize, page }, { rejectWithValue }) => {
+    try {
+      const response = await axios({
+        method: "GET",
+        url: "https://newsapi.org/v2/top-headlines",
+        headers: { "X-Api-Key": "21561b62354b42e09b27d5d359f870b8" },
+        params: {
+          country: country,
+          pageSize: pageSize,
+          page: page,
+        },
+      });
+
+      if (!response.status === 200) {
+        throw new Error("Server Error. Top headlines were not loaded.");
+      }
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
 export const loadBusinessHeadlines = createAsyncThunk(
   "headlines/loadBusinessHeadlines",
   async ({ country, pageSize, page }, { rejectWithValue }) => {
@@ -118,6 +143,7 @@ export const headlinesSlice = createSlice({
     entertainment: { totalResults: 0, headlines: [], status: "", error: null },
     technology: { totalResults: 0, headlines: [], status: "", error: null },
     sports: { totalResults: 0, headlines: [], status: "", error: null },
+    all: { totalResults: 0, headlines: [], status: "", error: null },
   },
   extraReducers: (builder) => {
     builder
@@ -190,6 +216,23 @@ export const headlinesSlice = createSlice({
       .addCase(loadSportsHeadlines.rejected, (state, action) => {
         state.sports.status = "rejected";
         state.sports.error = action.payload;
+      })
+      .addCase(loadAllHeadlines.pending, (state) => {
+        state.all.status = "loading";
+        state.all.error = null;
+      })
+      .addCase(loadAllHeadlines.fulfilled, (state, action) => {
+        state.all.status = "resolved";
+        state.all.error = null;
+        state.all.totalResults = action.payload.totalResults;
+        state.all.headlines = action.payload.articles.map((article) => ({
+          ...article,
+          id: article.url,
+        }));
+      })
+      .addCase(loadAllHeadlines.rejected, (state, action) => {
+        state.all.status = "rejected";
+        state.all.error = action.payload;
       });
   },
 });
