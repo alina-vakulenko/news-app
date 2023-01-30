@@ -1,6 +1,6 @@
 import React from "react";
-import { cutText } from "../utils/textHandler";
-import { formatIsoDate } from "../utils/dateHandler";
+import { cutText } from "../../utils/textHandler";
+import { formatIsoDate } from "../../utils/dateHandler";
 
 export default function HeadlinesSectionContent({ topNews, bottomNews }) {
   return (

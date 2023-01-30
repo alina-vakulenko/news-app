@@ -1,0 +1,140 @@
+.footer {
+  background-color: #393939;
+  padding: 44px 0 82px 0;
+}
+
+.footer-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 30px;
+  color: #fff;
+}
+
+.footer-logo {
+  margin-bottom: 31px;
+}
+
+.business-card-text {
+  font-size: 14px;
+  line-height: 21px;
+  margin-bottom: 30px;
+}
+
+.business-card-contacts-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.footer .section-title {
+  font-size: 24px;
+  line-height: 36px;
+  position: relative;
+  margin-bottom: 27px;
+  padding-bottom: 4px;
+}
+.footer .section-title::before {
+  display: block;
+  position: absolute;
+  content: "";
+  height: 1px;
+  width: 70px;
+  background-color: #f65050;
+  top: 39px;
+  z-index: 10;
+}
+.footer .section-title::after {
+  display: block;
+  position: absolute;
+  content: "";
+  height: 1px;
+  width: 100%;
+  background-color: #fff;
+  bottom: 0;
+}
+
+.photo-gallery-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  column-gap: 7px;
+  row-gap: 7px;
+}
+
+.tags-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 4px;
+}
+
+.tag {
+  font-size: 14px;
+  line-height: 14px;
+  padding: 5px;
+  color: white;
+  background-color: #0088ff;
+}
+
+.tag.category-bg-color-1 {
+  background-color: #0088ff;
+}
+
+.tag.category-bg-color-2 {
+  background-color: #997c00;
+}
+
+.tag.category-bg-color-3 {
+  background-color: #49cfe8;
+}
+
+.tag.category-bg-color-4 {
+  background-color: #2ecc71;
+}
+
+.tag.category-bg-color-5 {
+  background-color: #fe4a51;
+}
+
+.tag.category-bg-color-6 {
+  background-color: #a56cbd;
+}
+
+.stay-in-touch-text {
+  font-size: 14px;
+  line-height: 21px;
+  margin-bottom: 26px;
+}
+
+.stay-in-touch-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.stay-in-touch-form .email-input,
+.subscribe-button {
+  height: 40px;
+  max-width: 270px;
+  border: none;
+}
+
+.stay-in-touch-form .email-input {
+  padding: 10px 15px;
+}
+
+.stay-in-touch-form .email-input::placeholder {
+  font-size: 12px;
+  line-height: 20px;
+  color: #c4c4c4;
+  text-align: center;
+}
+
+.stay-in-touch-form .subscribe-button {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 30px;
+  padding: 5px 0;
+  background-color: #f65050;
+  color: #fff;
+}

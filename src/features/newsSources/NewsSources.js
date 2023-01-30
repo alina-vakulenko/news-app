@@ -5,6 +5,7 @@ import {
   selectCurrentCountry,
   selectCurrentLanguage,
 } from "../userPreferences/userPreferencesSlice";
+import NewsSourcesSelect from "../../components/newsSources/NewsSourcesSelect";
 
 export default function NewsSources() {
   const dispatch = useDispatch();
@@ -12,24 +13,16 @@ export default function NewsSources() {
   const currentLanguage = useSelector(selectCurrentLanguage);
   const sources = useSelector(selectNewsSources);
 
-  useEffect(() => {
-    dispatch(
-      loadNewsSources({
-        country: currentCountry,
-        language: currentLanguage,
-      })
-    );
-  }, [dispatch, currentCountry, currentLanguage]);
+  // useEffect(() => {
+  //   dispatch(
+  //     loadNewsSources({
+  //       country: currentCountry,
+  //       language: currentLanguage,
+  //     })
+  //   );
+  // }, [dispatch, currentCountry, currentLanguage]);
 
-  return (
-    <div className="news-sources">
-      <select className="sources-list">
-        {sources.map((source) => (
-          <option key={source.id} className="source-item">
-            {source.name}
-          </option>
-        ))}
-      </select>
-    </div>
-  );
+  if (sources) {
+    return <NewsSourcesSelect sourcesList={sources} />;
+  } else return null;
 }

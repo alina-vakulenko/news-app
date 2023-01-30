@@ -1,0 +1,123 @@
+.general-section {
+  margin-bottom: 50px;
+  max-width: 870px;
+}
+
+.general-section-content {
+  height: 400px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 30px;
+}
+
+.full-height-article-image {
+  height: 250px;
+  width: 100%;
+  object-fit: cover;
+  margin-bottom: 25px;
+}
+
+.full-height-article-author {
+  font-size: 10px;
+  line-height: 10px;
+}
+
+.full-height-article-date {
+  font-size: 10px;
+  line-height: 10px;
+  opacity: 0.85;
+}
+.full-height-article-title {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
+  margin-bottom: 6px;
+  margin-top: 6px;
+}
+.full-height-article-description {
+  font-weight: 250;
+  font-size: 14px;
+  line-height: 16px;
+  color: rgba(57, 57, 57, 0.6);
+}
+.section-title-button {
+  padding: 3px 12px;
+  border: none;
+  font-size: 12px;
+  line-height: 18px;
+  color: #fff;
+}
+.section-title-button:hover {
+  transform: translateY(1px);
+}
+.section-title-button.category-bg-color-1 {
+  background-color: #0088ff;
+}
+
+.section-title-button.category-bg-color-2 {
+  background-color: #997c00;
+}
+
+.section-title-button.category-bg-color-3 {
+  background-color: #49cfe8;
+}
+.section-title-button.category-bg-color-4 {
+  background-color: #2ecc71;
+}
+.section-title-button.category-bg-color-5 {
+  background-color: #fe4a51;
+}
+
+.headlines-side {
+  border-color: #2ecc71;
+}
+.headlines-side .headline-container {
+  height: 70px;
+  display: flex;
+  position: relative;
+  margin-bottom: 17px;
+}
+
+.headlines-side .headline-container:hover .headline-title {
+  transform: scale(1.02);
+}
+
+.headlines-side .headline-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+}
+
+.headlines-side .headline-image-container {
+  height: 100%;
+  padding-right: 14px;
+}
+
+.headlines-side .headline-image {
+  width: 90px;
+  height: 100%;
+  object-fit: cover;
+}
+.headlines-side .headline-text {
+  width: 100%;
+}
+.headlines-side .headline-author {
+  font-size: 10px;
+  line-height: 10px;
+}
+
+.headlines-side .headline-date {
+  font-size: 10px;
+  line-height: 10px;
+  opacity: 0.85;
+}
+.headlines-side .headline-title {
+  margin-top: 12px;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 22px;
+  transition: 150ms all;
+}

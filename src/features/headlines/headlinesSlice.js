@@ -1,139 +1,29 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
+import { getTopHeadlines } from "../../api/apiRequests";
 
 export const loadAllHeadlines = createAsyncThunk(
   "headlines/loadAllHeadlines",
-  async ({ country, pageSize, page }, { rejectWithValue }) => {
-    try {
-      const response = await axios({
-        method: "GET",
-        url: "https://newsapi.org/v2/top-headlines",
-        headers: { "X-Api-Key": "21561b62354b42e09b27d5d359f870b8" },
-        params: {
-          country: country,
-          pageSize: pageSize,
-          page: page,
-        },
-      });
-
-      if (!response.status === 200) {
-        throw new Error("Server Error. Top headlines were not loaded.");
-      }
-      return response.data;
-    } catch (error) {
-      return rejectWithValue(error.message);
-    }
-  }
+  getTopHeadlines
 );
 
 export const loadBusinessHeadlines = createAsyncThunk(
   "headlines/loadBusinessHeadlines",
-  async ({ country, pageSize, page }, { rejectWithValue }) => {
-    try {
-      const response = await axios({
-        method: "GET",
-        url: "https://newsapi.org/v2/top-headlines",
-        headers: { "X-Api-Key": "21561b62354b42e09b27d5d359f870b8" },
-        params: {
-          country: country,
-          category: "business",
-          pageSize: pageSize,
-          page: page,
-        },
-      });
-
-      if (!response.status === 200) {
-        throw new Error(
-          "Server Error. Top business headlines were not loaded."
-        );
-      }
-      return response.data;
-    } catch (error) {
-      return rejectWithValue(error.message);
-    }
-  }
+  getTopHeadlines
 );
 
 export const loadEntertainmentHeadlines = createAsyncThunk(
   "headlines/loadEntertainmentHeadlines",
-  async ({ country, pageSize, page }, { rejectWithValue }) => {
-    try {
-      const response = await axios({
-        method: "get",
-        url: "https://newsapi.org/v2/top-headlines",
-        headers: { "X-Api-Key": "21561b62354b42e09b27d5d359f870b8" },
-        params: {
-          country: country,
-          category: "entertainment",
-          pageSize: pageSize,
-          page: page,
-        },
-      });
-
-      if (!response.status === 200) {
-        throw new Error(
-          "Server Error. Top entertainment headlines were not loaded."
-        );
-      }
-      return response.data;
-    } catch (error) {
-      return rejectWithValue(error.message);
-    }
-  }
+  getTopHeadlines
 );
 
 export const loadTechnologyHeadlines = createAsyncThunk(
   "headlines/loadTechnologyHeadlines",
-  async ({ country, pageSize, page }, { rejectWithValue }) => {
-    try {
-      const response = await axios({
-        method: "get",
-        url: "https://newsapi.org/v2/top-headlines",
-        headers: { "X-Api-Key": "21561b62354b42e09b27d5d359f870b8" },
-        params: {
-          country: country,
-          category: "technology",
-          pageSize: pageSize,
-          page: page,
-        },
-      });
-
-      if (!response.status === 200) {
-        throw new Error(
-          "Server Error. Top technology headlines were not loaded."
-        );
-      }
-      return response.data;
-    } catch (error) {
-      return rejectWithValue(error.message);
-    }
-  }
+  getTopHeadlines
 );
 
 export const loadSportsHeadlines = createAsyncThunk(
   "headlines/loadSportsHeadlines",
-  async ({ country, pageSize, page }, { rejectWithValue }) => {
-    try {
-      const response = await axios({
-        method: "get",
-        url: "https://newsapi.org/v2/top-headlines",
-        headers: { "X-Api-Key": "21561b62354b42e09b27d5d359f870b8" },
-        params: {
-          country: country,
-          category: "sports",
-          pageSize: pageSize,
-          page: page,
-        },
-      });
-
-      if (!response.status === 200) {
-        throw new Error("Server Error. Top sports headlines were not loaded.");
-      }
-      return response.data;
-    } catch (error) {
-      return rejectWithValue(error.message);
-    }
-  }
+  getTopHeadlines
 );
 
 export const headlinesSlice = createSlice({

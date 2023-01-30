@@ -1,54 +1,23 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
+import {
+  getArticlesByPopularity,
+  getArticlesByRelevancy,
+  getArticlesByPublishedDate,
+} from "../../api/apiRequests";
 
 export const loadArticlesSortedByPopularity = createAsyncThunk(
   "newsArticles/loadArticlesSortedByPopularity",
-  async ({ language, q }, { rejectWithValue }) => {
-    try {
-      const response = await axios({
-        method: "get",
-        url: "https://newsapi.org/v2/everything",
-        headers: { "X-Api-Key": "21561b62354b42e09b27d5d359f870b8" },
-        params: {
-          language: language,
-          q: q,
-          pageSize: 4,
-        },
-      });
-
-      if (!response.status === 200) {
-        throw new Error("Server Error.");
-      }
-      return response.data;
-    } catch (error) {
-      return rejectWithValue(error.message);
-    }
-  }
+  getArticlesByPopularity
 );
 
 export const loadArticlesSortedByRelevancy = createAsyncThunk(
   "newsArticles/loadArticlesSortedByRelevancy",
-  async ({ language, q }, { rejectWithValue }) => {
-    try {
-      const response = await axios({
-        method: "get",
-        url: "https://newsapi.org/v2/everything",
-        headers: { "X-Api-Key": "21561b62354b42e09b27d5d359f870b8" },
-        params: {
-          language: language,
-          q: q,
-          pageSize: 10,
-        },
-      });
+  getArticlesByRelevancy
+);
 
-      if (!response.status === 200) {
-        throw new Error("Server Error.");
-      }
-      return response.data;
-    } catch (error) {
-      return rejectWithValue(error.message);
-    }
-  }
+export const loadArticlesSortedByPublishedDate = createAsyncThunk(
+  "newsArticles/loadArticlesSortedByPublishedDate",
+  getArticlesByPublishedDate
 );
 
 export const newsArticlesSlice = createSlice({
@@ -77,6 +46,24 @@ export const newsArticlesSlice = createSlice({
       .addCase(loadArticlesSortedByPopularity.rejected, (state, action) => {
         state.status = "rejected";
         state.error = action.payload;
+      })
+      .addCase(loadArticlesSortedByRelevancy.fulfilled, (state, action) => {
+        state.status = "resolved";
+        state.error = null;
+        state.totalResults = action.payload.totalResults;
+        state.articles = action.payload.articles.map((article) => ({
+          ...article,
+          id: article.url,
+        }));
+      })
+      .addCase(loadArticlesSortedByPublishedDate.fulfilled, (state, action) => {
+        state.status = "resolved";
+        state.error = null;
+        state.totalResults = action.payload.totalResults;
+        state.articles = action.payload.articles.map((article) => ({
+          ...article,
+          id: article.url,
+        }));
       });
   },
 });

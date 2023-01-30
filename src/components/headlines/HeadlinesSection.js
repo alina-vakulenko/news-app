@@ -1,15 +1,15 @@
 import React from "react";
-import buttonLeftPointer from "../images/left-pointer.svg";
-import buttonRightPointer from "../images/right-pointer.svg";
-import Loader from "./Loader";
+import buttonLeftPointer from "../../images/left-pointer.svg";
+import buttonRightPointer from "../../images/right-pointer.svg";
 import HeadlinesSectionContent from "./HeadlinesSectionContent";
-import { useSelector } from "react-redux";
-import "../styles/headlinesSection.css";
+import "../../styles/headlinesSection.css";
 
-export default function HeadlinesSection({ category, currentPage, setPage }) {
-  const headlines = useSelector(
-    (state) => state.headlines[category.toLowerCase()]
-  );
+export default function HeadlinesSection({
+  title,
+  headlines,
+  currentPage,
+  setPage,
+}) {
   const goToNextPage = () => {
     const nextPage = currentPage + 1;
     // if (nextPage > totalPages) {
@@ -27,9 +27,9 @@ export default function HeadlinesSection({ category, currentPage, setPage }) {
   };
 
   return (
-    <section id={category} className="news-category-section">
+    <section id={title} className="news-category-section">
       <div className="section-title">
-        <h2 className="section-title-category">{category}</h2>
+        <h2 className="section-title-category">{title}</h2>
         <div className="section-title-buttons">
           <button
             className="section-title-left-button"

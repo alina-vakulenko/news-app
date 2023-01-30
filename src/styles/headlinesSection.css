@@ -5,8 +5,21 @@
 .section-title {
   position: relative;
   display: flex;
-  margin-bottom: 40px;
+  padding-bottom: 6px;
+  margin-bottom: 31px;
 }
+
+.section-title::before {
+  display: block;
+  position: absolute;
+  content: "";
+  height: 1px;
+  width: 160px;
+  background-color: #f65050;
+  top: 41px;
+  z-index: 10;
+}
+
 .section-title::after {
   display: block;
   content: "";

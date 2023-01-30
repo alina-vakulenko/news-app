@@ -24,18 +24,19 @@ export default function UserPreferences() {
       <select
         name="user-preferences-country"
         onChange={(e) => handleCountryChange(e)}
+        defaultValue={currentCountry}
         className="countries"
       >
-        <option key="us" value="us" selected={currentCountry === "us"}>
+        <option key="us" value="us">
           US
         </option>
-        <option key="de" value="de" selected={currentCountry === "de"}>
+        <option key="de" value="de">
           DE
         </option>
-        <option key="ua" value="ua" selected={currentCountry === "ua"}>
+        <option key="ua" value="ua">
           UA
         </option>
-        <option key="all" value="" selected={currentCountry === ""}>
+        <option key="all" value="">
           All
         </option>
       </select>

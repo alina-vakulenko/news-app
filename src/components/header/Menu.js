@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/menu.css";
+import "../../styles/menu.css";
 
 export default function Menu({ menuItems }) {
   const highlightCurrentMenuItem = (menuItem) => {
