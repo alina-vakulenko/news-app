@@ -5,7 +5,8 @@ export const userPreferencesSlice = createSlice({
   initialState: {
     country: "us",
     language: "en",
-    keywords: "ukraine",
+    keywords: "inflation",
+    sortMethod: "relevancy",
   },
   reducers: {
     setCountry: (state, action) => {
@@ -17,14 +18,19 @@ export const userPreferencesSlice = createSlice({
     setKeywords: (state, action) => {
       state.keywords = action.payload;
     },
+    setSortMethod: (state, action) => {
+      state.sortMethod = action.payload;
+    },
   },
 });
 
 export const selectCurrentCountry = (state) => state.userPreferences.country;
 export const selectCurrentLanguage = (state) => state.userPreferences.language;
 export const selectCurrentKeywords = (state) => state.userPreferences.keywords;
+export const selectCurrentSortMethod = (state) =>
+  state.userPreferences.sortMethod;
 
-export const { setCountry, setLanguage, setKeywords } =
+export const { setCountry, setLanguage, setKeywords, setSortMethod } =
   userPreferencesSlice.actions;
 
 export default userPreferencesSlice.reducer;

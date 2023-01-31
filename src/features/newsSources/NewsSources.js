@@ -22,7 +22,5 @@ export default function NewsSources() {
   //   );
   // }, [dispatch, currentCountry, currentLanguage]);
 
-  if (sources) {
-    return <NewsSourcesSelect sourcesList={sources} />;
-  } else return null;
+  return sources && <NewsSourcesSelect sourcesList={sources} />;
 }

@@ -1,23 +1,9 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import {
-  getArticlesByPopularity,
-  getArticlesByRelevancy,
-  getArticlesByPublishedDate,
-} from "../../api/apiRequests";
+import { getArticles } from "../../api/apiRequests";
 
-export const loadArticlesSortedByPopularity = createAsyncThunk(
-  "newsArticles/loadArticlesSortedByPopularity",
-  getArticlesByPopularity
-);
-
-export const loadArticlesSortedByRelevancy = createAsyncThunk(
-  "newsArticles/loadArticlesSortedByRelevancy",
-  getArticlesByRelevancy
-);
-
-export const loadArticlesSortedByPublishedDate = createAsyncThunk(
-  "newsArticles/loadArticlesSortedByPublishedDate",
-  getArticlesByPublishedDate
+export const loadArticles = createAsyncThunk(
+  "newsArticles/loadArticles",
+  getArticles
 );
 
 export const newsArticlesSlice = createSlice({
@@ -30,11 +16,11 @@ export const newsArticlesSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(loadArticlesSortedByPopularity.pending, (state) => {
+      .addCase(loadArticles.pending, (state) => {
         state.status = "loading";
         state.error = null;
       })
-      .addCase(loadArticlesSortedByPopularity.fulfilled, (state, action) => {
+      .addCase(loadArticles.fulfilled, (state, action) => {
         state.status = "resolved";
         state.error = null;
         state.totalResults = action.payload.totalResults;
@@ -43,27 +29,9 @@ export const newsArticlesSlice = createSlice({
           id: article.url,
         }));
       })
-      .addCase(loadArticlesSortedByPopularity.rejected, (state, action) => {
+      .addCase(loadArticles.rejected, (state, action) => {
         state.status = "rejected";
         state.error = action.payload;
-      })
-      .addCase(loadArticlesSortedByRelevancy.fulfilled, (state, action) => {
-        state.status = "resolved";
-        state.error = null;
-        state.totalResults = action.payload.totalResults;
-        state.articles = action.payload.articles.map((article) => ({
-          ...article,
-          id: article.url,
-        }));
-      })
-      .addCase(loadArticlesSortedByPublishedDate.fulfilled, (state, action) => {
-        state.status = "resolved";
-        state.error = null;
-        state.totalResults = action.payload.totalResults;
-        state.articles = action.payload.articles.map((article) => ({
-          ...article,
-          id: article.url,
-        }));
       });
   },
 });

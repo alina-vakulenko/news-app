@@ -1,6 +1,7 @@
 import React from "react";
 
 export default function NewsSourcesSelect({ sourcesList }) {
+  if (!sourcesList) return null;
   return (
     <div className="news-sources">
       <select className="sources-list">

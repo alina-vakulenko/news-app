@@ -5,8 +5,8 @@ const everythingUrl = "https://newsapi.org/v2/everything";
 const topHeadlinesUrl = "https://newsapi.org/v2/top-headlines";
 const sourcesUrl = "https://newsapi.org/v2/top-headlines/sources";
 
-export const getArticlesByPopularity = async (
-  { language, q, pageSize, page },
+export const getArticles = async (
+  { language, q, sortBy, pageSize, page },
   { rejectWithValue }
 ) => {
   try {
@@ -15,63 +15,9 @@ export const getArticlesByPopularity = async (
       url: everythingUrl,
       headers: { "X-Api-Key": API_KEY },
       params: {
-        sortBy: "popularity",
         language: language,
         q: q,
-        pageSize: pageSize,
-        page: page,
-      },
-    });
-
-    if (!response.status === 200) {
-      throw new Error("Server Error.");
-    }
-    return response.data;
-  } catch (error) {
-    return rejectWithValue(error.message);
-  }
-};
-
-export const getArticlesByPublishedDate = async (
-  { language, q, pageSize, page },
-  { rejectWithValue }
-) => {
-  try {
-    const response = await axios({
-      method: "get",
-      url: everythingUrl,
-      headers: { "X-Api-Key": API_KEY },
-      params: {
-        sortBy: "publishedAt",
-        language: language,
-        q: q,
-        pageSize: pageSize,
-        page: page,
-      },
-    });
-
-    if (!response.status === 200) {
-      throw new Error("Server Error.");
-    }
-    return response.data;
-  } catch (error) {
-    return rejectWithValue(error.message);
-  }
-};
-
-export const getArticlesByRelevancy = async (
-  { language, q, pageSize, page },
-  { rejectWithValue }
-) => {
-  try {
-    const response = await axios({
-      method: "get",
-      url: everythingUrl,
-      headers: { "X-Api-Key": API_KEY },
-      params: {
-        sortBy: "relevancy",
-        language: language,
-        q: q,
+        sortBy: sortBy,
         pageSize: pageSize,
         page: page,
       },
