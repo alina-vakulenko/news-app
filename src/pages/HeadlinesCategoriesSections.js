@@ -5,9 +5,9 @@ import {
   loadSportsHeadlines,
   loadTechnologyHeadlines,
   loadEntertainmentHeadlines,
-} from "./headlinesSlice";
-import { selectCurrentCountry } from "../userPreferences/userPreferencesSlice";
-import HeadlinesSection from "../../components/headlines/HeadlinesSection";
+} from "../features/headlines/headlinesSlice";
+import { selectCurrentCountry } from "../features/userPreferences/userPreferencesSlice";
+import HeadlinesSection from "../components/headlines/HeadlinesSection";
 
 export default function HeadlinesCategoriesSections() {
   const dispatch = useDispatch();
@@ -29,49 +29,50 @@ export default function HeadlinesCategoriesSections() {
     useState(1);
   const [technologyHeadlinesPage, setTechnologyHeadlinesPage] = useState(1);
 
-  // useEffect(() => {
-  //   dispatch(
-  //     loadBusinessHeadlines({
-  //       category: "business",
-  //       country: currentCountry,
-  //       pageSize: articlesPerPage,
-  //       page: businessHeadlinesPage,
-  //     })
-  //   );
-  // }, [dispatch, currentCountry, businessHeadlinesPage]);
+  useEffect(() => {
+    dispatch(
+      loadBusinessHeadlines({
+        category: "business",
+        country: currentCountry,
+        pageSize: articlesPerPage,
+        page: businessHeadlinesPage,
+      })
+    );
+  }, [dispatch, currentCountry, businessHeadlinesPage]);
 
-  // useEffect(() => {
-  //   dispatch(
-  //     loadSportsHeadlines({
-  //       category: "sports",
-  //       country: currentCountry,
-  //       pageSize: articlesPerPage,
-  //       page: sportsHeadlinesPage,
-  //     })
-  //   );
-  // }, [dispatch, currentCountry, sportsHeadlinesPage]);
+  useEffect(() => {
+    dispatch(
+      loadSportsHeadlines({
+        category: "sports",
+        country: currentCountry,
+        pageSize: articlesPerPage,
+        page: sportsHeadlinesPage,
+      })
+    );
+  }, [dispatch, currentCountry, sportsHeadlinesPage]);
 
-  // useEffect(() => {
-  //   dispatch(
-  //     loadEntertainmentHeadlines({
-  //       category: "entertainment",
-  //       country: currentCountry,
-  //       pageSize: articlesPerPage,
-  //       page: entertainmentHeadlinesPage,
-  //     })
-  //   );
-  // }, [dispatch, currentCountry, entertainmentHeadlinesPage]);
+  useEffect(() => {
+    dispatch(
+      loadEntertainmentHeadlines({
+        category: "entertainment",
+        country: currentCountry,
+        pageSize: articlesPerPage,
+        page: entertainmentHeadlinesPage,
+      })
+    );
+  }, [dispatch, currentCountry, entertainmentHeadlinesPage]);
 
-  // useEffect(() => {
-  //   dispatch(
-  //     loadTechnologyHeadlines({
-  //       category: "technology",
-  //       country: currentCountry,
-  //       pageSize: articlesPerPage,
-  //       page: technologyHeadlinesPage,
-  //     })
-  //   );
-  // }, [dispatch, currentCountry, technologyHeadlinesPage]);
+  useEffect(() => {
+    dispatch(
+      loadTechnologyHeadlines({
+        category: "technology",
+        country: currentCountry,
+        pageSize: articlesPerPage,
+        page: technologyHeadlinesPage,
+      })
+    );
+  }, [dispatch, currentCountry, technologyHeadlinesPage]);
+
   return (
     <div className="headlines-sections">
       <HeadlinesSection

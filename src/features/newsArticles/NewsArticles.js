@@ -12,6 +12,7 @@ import {
   selectCurrentLanguage,
   selectCurrentKeywords,
   selectCurrentSortMethod,
+  selectMarkedSources,
 } from "../userPreferences/userPreferencesSlice";
 import GeneralSection from "../../components/articles/GeneralSection";
 
@@ -24,6 +25,7 @@ export default function NewsArticles() {
   const currentLanguage = useSelector(selectCurrentLanguage);
   const currentKeywords = useSelector(selectCurrentKeywords);
   const currentSortMethod = useSelector(selectCurrentSortMethod);
+  const currentMarkedSources = useSelector(selectMarkedSources);
 
   useEffect(() => {
     dispatch(
@@ -31,11 +33,18 @@ export default function NewsArticles() {
         language: currentLanguage,
         q: currentKeywords,
         sortBy: currentSortMethod,
+        sources: currentMarkedSources,
         pageSize: 15,
         page: 1,
       })
     );
-  }, [dispatch, currentLanguage, currentKeywords, currentSortMethod]);
+  }, [
+    dispatch,
+    currentLanguage,
+    currentKeywords,
+    currentSortMethod,
+    currentMarkedSources,
+  ]);
 
   /* {status === "loading" && <Loader message={`Searching news for you...`} />}
   {error && <h2>An error occured: {error}</h2>}

@@ -6,7 +6,7 @@ const topHeadlinesUrl = "https://newsapi.org/v2/top-headlines";
 const sourcesUrl = "https://newsapi.org/v2/top-headlines/sources";
 
 export const getArticles = async (
-  { language, q, sortBy, pageSize, page },
+  { language, q, sortBy, sources, pageSize, page },
   { rejectWithValue }
 ) => {
   try {
@@ -18,6 +18,7 @@ export const getArticles = async (
         language: language,
         q: q,
         sortBy: sortBy,
+        sources: sources,
         pageSize: pageSize,
         page: page,
       },
@@ -77,7 +78,6 @@ export const getTopHeadlines = async (
     if (!response.status === 200) {
       throw new Error("Server Error.");
     }
-    console.log(response.data);
     return response.data;
   } catch (error) {
     return rejectWithValue(error.message);

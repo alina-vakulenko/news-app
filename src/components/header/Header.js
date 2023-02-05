@@ -6,16 +6,6 @@ import SearchByKeywords from "../../features/newsArticles/SearchByKeywords";
 import "../../styles/header.css";
 
 export default function Header() {
-  const menuItems = [
-    "Home",
-    "General",
-    "Business",
-    "Entertainment",
-    "Health",
-    "Technology",
-    "Science",
-    "Sports",
-  ];
   return (
     <header className="header">
       <div className="content-wrapper">
@@ -25,7 +15,7 @@ export default function Header() {
           </a>
         </div>
         <div className="menu-wrapper">
-          <Menu menuItems={menuItems} />
+          <Menu />
           <UserPreferences />
           <SearchByKeywords />
         </div>

@@ -1,0 +1,17 @@
+.sort-methods-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: flex-start;
+  border: 1px solid #393939;
+}
+.sort-methods-legend {
+  padding: 5px;
+  font-weight: 500;
+}
+.sort-methods-label {
+}
+
+.sort-methods-option {
+}

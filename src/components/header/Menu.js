@@ -1,27 +1,26 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../../styles/menu.css";
 
-export default function Menu({ menuItems }) {
-  const highlightCurrentMenuItem = (menuItem) => {
-    document
-      .querySelector(`#${menuItem.text}`)
-      .classList.add("header-nav-item-current");
-  };
-
+export default function Menu() {
   return (
     <nav className="header-nav">
       <ul className="header-nav-list">
-        {menuItems.map((item) => (
-          <li key={item} id={item} className="header-nav-item">
-            <a
-              href="#!"
-              className="header-nav-link"
-              onClick={(e) => highlightCurrentMenuItem(e.target)}
-            >
-              {item}
-            </a>
-          </li>
-        ))}
+        <li className="header-nav-item">
+          <Link to="/" className="header-nav-link">
+            Home
+          </Link>
+        </li>
+        <li className="header-nav-item">
+          <Link to="/headlines" className="header-nav-link">
+            Top Headlines
+          </Link>
+        </li>
+        <li className="header-nav-item">
+          <Link to="/articles" className="header-nav-link">
+            Articles
+          </Link>
+        </li>
       </ul>
     </nav>
   );

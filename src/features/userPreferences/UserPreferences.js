@@ -16,7 +16,7 @@ export default function UserPreferences() {
   };
 
   const handleLanguageChange = (e) => {
-    dispatch(setLanguage(e.target.value));
+    dispatch(setLanguage(e.target.value === "All" ? "" : e.target.value));
   };
 
   return (

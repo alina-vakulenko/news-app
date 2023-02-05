@@ -1,28 +1,27 @@
 import React from "react";
-import Header from "../components/header/Header";
-import Dashboard from "../features/headlines/Dashboard";
-import HeadlinesCategoriesSections from "../features/headlines/HeadlinesCategoriesSections";
-import NewsArticles from "../features/newsArticles/NewsArticles";
-import SearchWithSortMethod from "../features/newsArticles/SearchWithSortMethod";
+import Dashboard from "../pages/Dashboard";
+import HeadlinesCategoriesSections from "../pages/HeadlinesCategoriesSections";
+import Page1 from "../pages/Page1";
 import NewsSources from "../features/newsSources/NewsSources";
-import Footer from "../components/footer/Footer";
+import CssBaseline from "@mui/material/CssBaseline";
+import { Routes, Route } from "react-router-dom";
+import Layout from "../components/Layout";
 import "../styles/app.css";
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <main>
-        <div className="content-wrapper">
-          <NewsSources />
-          <SearchWithSortMethod />
-          <NewsArticles />
-          <Dashboard />
-          <HeadlinesCategoriesSections />
-        </div>
-      </main>
-      <Footer />
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Dashboard />}></Route>
+          <Route
+            path="/headlines"
+            element={<HeadlinesCategoriesSections />}
+          ></Route>
+          <Route path="/articles" element={<Page1 />}></Route>
+        </Route>
+      </Routes>
+    </>
   );
 }
 

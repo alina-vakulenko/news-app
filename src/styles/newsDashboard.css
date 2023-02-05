@@ -1,7 +1,10 @@
 .news-dashboard {
   margin-bottom: 50px;
 }
-
+.section-title {
+  display: flex;
+  flex-wrap: wrap;
+}
 .news-dashboard .news-cards {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

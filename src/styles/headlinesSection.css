@@ -4,7 +4,7 @@
 
 .section-title {
   position: relative;
-  display: flex;
+  /* display: flex; */
   padding-bottom: 6px;
   margin-bottom: 31px;
 }
@@ -13,10 +13,10 @@
   display: block;
   position: absolute;
   content: "";
-  height: 1px;
+  height: 3px;
   width: 160px;
   background-color: #f65050;
-  top: 41px;
+  top: 39px;
   z-index: 10;
 }
 

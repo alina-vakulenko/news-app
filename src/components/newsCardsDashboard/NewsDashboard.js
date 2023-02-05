@@ -17,10 +17,6 @@ export default function NewsDashboard({
     "card-container-size-m",
   ];
 
-  // if (newsList.length > dashboardTemplate.length) {
-  //   dashboardTemplate.fill("size-m", 4, newsList.length - 1);
-  // }
-
   const goToNextPage = () => {
     const nextPage = currentDashboardPage + 1;
     // if (nextPage > totalPages) {
